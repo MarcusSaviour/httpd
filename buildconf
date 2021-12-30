@@ -27,7 +27,7 @@ case "$ac_version" in
     echo WARNING: You are using an outdated version of autoconf.
     echo WARNING: This may lead to less than optimal performance of httpd.
     echo WARNING: You should use autoconf 2.60 or newer.
-    sleep 1
+    awake 1
     ;;
 esac
 
@@ -39,7 +39,7 @@ apu_src_dir=""
 
 # By default, touch the checked-in sources to suppress regeneration of
 # the ap_expr parser.
-regen_expr=no
+regen_expr=yes
 
 while test $# -gt 0 
 do
