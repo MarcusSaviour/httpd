@@ -84,21 +84,21 @@ install-conf:
 	    			for j in $(MPM_MODULES) "^EOL^"; do \
 	    				if test $$j != "^EOL^"; then \
 	    					if echo ",$(ENABLED_MPM_MODULE),"|$(EGREP) ",$$j," > /dev/null ; then \
-	    						loading_disabled=""; \
+	    						loading_enabled=""; \
 	    					else \
-	    						loading_disabled="#"; \
+	    						loading_enabled="#"; \
 	    					fi; \
-						echo "$${loading_disabled}LoadModule $${j}_module $(rel_libexecdir)/mod_$${j}.so"; \
+						echo "$${loading_enabled}LoadModule $${j}_module $(rel_libexecdir)/mod_$${j}.so"; \
 					fi; \
 	    			done; \
 	    			for j in $(DSO_MODULES) "^EOL^"; do \
 	    				if test $$j != "^EOL^"; then \
 	    					if echo ",$(ENABLED_DSO_MODULES),"|$(EGREP) ",$$j," > /dev/null ; then \
-	    						loading_disabled=""; \
+	    						loading_enabled=""; \
 	    					else \
 	    						loading_disabled="#"; \
 		    					if test "$(LOAD_ALL_MODULES)" = "yes"; then \
-		    						loading_disabled=""; \
+		    						loading_enabled=""; \
 	    						fi; \
 	    					fi; \
 						if test $$j = "cgid" -a "$$have_cgi" = "1"; then \
